@@ -58,7 +58,7 @@
           <form action="/edit/<%=article.blog_id%>" method="get">
             <button  class="primary-button" type="submit">Edit</button>
           </form>
-          <form action="/delete/<%=article.blog_id%>" method="post">
+          <form class="delete-form" id="form<%=article.blog_id%>" data-id="<%=article.blog_id%>">
             <button class="primary-button" type="submit">Delete</button>
           </form>
         </div>
@@ -70,6 +70,42 @@
     <% }%>
 
   </section>
+  <script>
+    document.querySelectorAll(".delete-form").forEach((form)=>{
+      const id = form.dataset.id
+
+      form.addEventListener("submit", async (e)=>{
+        e.preventDefault();
+
+      // Add confirmation
+      if (!confirm("Are you sure you want to delete this post?")) {
+        return; // exit the method, if user clicks "Cancel"
+      }
+
+        try {
+          const JsonResult = await fetch(`/delete/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json"
+          },
+        })
+
+        const result = await JsonResult.json();
+
+        if (JsonResult.ok){
+          alert(result.message);
+          window.location.reload();
+        } else {
+          throw new Error(result.message);
+        }
+        } catch (error) {
+          console.error(error);
+          alert(error);
+        }
+      })
+      
+    })
+  </script>
 </body>
 
 </html>

@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
+
 app.get("/", async (req, res) => {
   try {
     const result = await db.query("SELECT * FROM blog_posts;");
@@ -21,7 +22,7 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/new", (req, res) => {
-  res.render("New-Post.ejs");
+  res.render("new-post.ejs");
 });
 
 app.get("/readMore/:id", async (req, res) => {
@@ -86,22 +87,27 @@ app.patch("/updateBlogPost", async (req, res) => {
       "UPDATE blog_posts SET title = $1, summary = $2, main_content = $3 WHERE blog_id = $4;",
       [title, summary, content, id]
     );
-    res.json({message: "Successful"});
+    res.json({ message: "Successful" });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Unable to update blog post."});
+    res.status(500).json({ message: "Unable to update blog post." });
   }
 });
 
-// this part needs to be changed to update the array after an item has been deleted
-app.delete("/delete/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  articles = articles.filter((article) => {
-    return article.id !== id;
-  });
-  // console.log(`Deleted article with id ${id}`);
-  res.redirect("/");
+app.delete("/delete/:id", async (req, res) => {
+  const id = req.params.id;
+
+  console.log("DELETE hit for ID:", req.params.id);
+
+  try {
+    await db.query("DELETE FROM blog_posts WHERE blog_id = $1", [id]);
+
+    res.json({ message: "Successfully deleted" });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to delete" });
+  }
 });
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
