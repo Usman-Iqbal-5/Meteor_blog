@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meteor Blog Home</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <section class="hero">
+    <h1>Latest Astronomy Discoveries</h1>
+    <p class="hero-text">Top Astronomy Discoveries for Amateur and Professional Astronomers to Read</p>
+
+    <% if (articles.length > 0){ %>
+    <div class="add-post-container">
+      <h3>Add a new blog post</h3>
+      <form action="/New" method="get">
+        <button class="primary-button" type="submit">Add Post</button>
+      </form>
+      <% }else {%>
+      <div class="add-post-container">
+        <h3>Be the first to add to the blog</h3>
+        <form action="/New" method="get">
+          <button class="primary-button" type="submit">Add Post</button>
+        </form>
+      </div>
+      <% } %>
+  </section>
+
+  <section>
+
+    <% if (articles.length > 0){ %>
+
+    <div class="container">
+
+      <% articles.forEach((article) => { %>
+      <div class="article">
+        <h5><%= article.title %></h5>
+        <p class="blog-text">
+          <%= article.summary ? article.summary.substring(0, 100) + "... " : "No summary available" %>
+
+        </p>
+
+        <a class="primary-button" href="/readMore/<%=article.blog_id%>">Read more</a>
+
+        <p class="blog-text more-info">
+          <%= article.main_content ? article.main_content.substring(0,100) + "... " : "No content available" %>
+
+        </p>
+        <div class="button-container">
+          <form action="/edit/<%=article.blog_id%>" method="get">
+            <button  class="primary-button" type="submit">Edit</button>
+          </form>
+          <form action="/delete/<%=article.blog_id%>" method="post">
+            <button class="primary-button" type="submit">Delete</button>
+          </form>
+        </div>
+      </div>
+      <% }) %>
+
+    </div>
+
+    <% }%>
+
+  </section>
+</body>
+
+</html>
