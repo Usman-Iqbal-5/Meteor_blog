@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/post-form.css">
+  <title>Upload a new post</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <form action="/newPost" method="post">
+  <form class="container" action="/newPost" method="post">
+    <h3>Upload a blog</h3>
     <label for="title">Title:</label>
-    <input type="text" id="title" name="title" required>
+    <input type="text" id="title" name="title" placeholder="Enter blog title..." required>
 
     <label for="summary">Summary:</label>
-    <textarea name="summary" id="summary" required></textarea>
+    <textarea name="summary" id="summary" placeholder="Enter blog summary..." required></textarea>
 
     <label for="content">Content:</label>
-    <textarea name="content" id="content" required></textarea>
+    <textarea name="content" id="content" placeholder="Enter blog content..." required></textarea>
 
-    <input type="submit" value="Post">
-    
-</form>
-    
+    <input class="primary-button" type="submit" value="Post">
+
+  </form>
+
 </body>
+
 </html>
