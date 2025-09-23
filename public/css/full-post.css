@@ -1,0 +1,15 @@
+main{
+   margin-left: 20%;
+   margin-right: 20%;
+}
+h1{
+    width:100% !important;
+}
+.heading{
+    color: #C6B38E;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+.blog-text{
+    line-height: 2em;
+}
