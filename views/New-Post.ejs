@@ -13,6 +13,7 @@
 </head>
 
 <body>
+  <%- include("partials/header.ejs") %>
 
   <form class="container" action="/newPost" method="post">
     <h3>Upload a blog</h3>
@@ -28,6 +29,8 @@
     <input class="primary-button" type="submit" value="Post">
 
   </form>
+
+  <%- include("partials/footer.ejs") %>
 
 </body>
 
