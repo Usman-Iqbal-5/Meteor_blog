@@ -90,13 +90,13 @@ Make sure you have **Node.js** and **PostgreSQL** installed on your machine befo
 
 Here are some screenshots of the application:
 
-![Upload a new blog post](meteor-blog-images/Upload_blog.jpeg)
+![Upload a new blog post](meteor_blog_images/Upload_blog.jpeg)
 *Form to upload new blog post.*
 
-![Home page to view all blog posts](meteor-blog-images/blog_post.jpeg)
+![Home page to view all blog posts](meteor_blog_images/blog_post.jpeg)
 *Home page to view all blog posts.*
 
-![Full blog Blog artilce page](meteor-blog-images/blog_article.jpeg)
+![Full blog Blog artilce page](meteor_blog_images/blog_article.jpeg)
 *Full blog Blog artilce page.*
 
 You can replace `path/to/homepage-screenshot.png` and the other paths with the actual file paths for your images, and add as many images as you like.
