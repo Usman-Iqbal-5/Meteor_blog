@@ -93,7 +93,7 @@ Here are some screenshots of the application:
 ![Upload a new blog post](meteor_blog_images/Upload_blog.jpeg)
 *Form to upload new blog post.*
 
-![Home page to view all blog posts](meteor_blog_images/blog_post.jpeg)
+![Home page to view all blog posts](meteor_blog_images/blog_page.jpeg)
 *Home page to view all blog posts.*
 
 ![Full blog Blog artilce page](meteor_blog_images/blog_article.jpeg)
