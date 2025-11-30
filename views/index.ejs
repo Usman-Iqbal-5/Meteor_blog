@@ -10,19 +10,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-  </head>
+</head>
 
-  <body>
-    <%- include("partials/header.ejs") %>
-    <section class="hero">
-      <h1>Latest Astronomy Discoveries</h1>
-      <p class="hero-text">Top Astronomy Discoveries for Amateur and Professional Astronomers to Read</p>
-    </section>
+<body>
+  <%- include("partials/header.ejs") %>
+  <section class="hero">
+    <h1 class="hero-title">Latest Astronomy Discoveries</h1>
+    <p class="hero-text">Top Astronomy Discoveries for Amateur and Professional Astronomers to Read</p>
+  </section>
 
-    <section>
-      <div class="container">
-        <% if (articles.length > 0){ %>
-        <div class="article">
+  <section>
+    <div class="container">
+      <% if (articles.length> 0){ %>
+      <div class="article first-article">
+        <div>
           <a href="/new"><svg class="add-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
               <path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z" />
@@ -38,67 +39,69 @@
           </div>
           <% } %>
         </div>
-        <%articles.forEach((article) => { %>
-        <div class="article">
-          <h5><%= article.title %></h5>
-          <p class="blog-text">
-            <%= article.summary ? article.summary.substring(0, 100) + "... " : "No summary available" %>
-          </p>
-          <a class="primary-button read-more-button" href="/readMore/<%=article.blog_id%>">Read more</a>
-          <p class="blog-text more-info">
-            <%= article.main_content ? article.main_content.substring(0,100) + "... " : "No content available" %>
-          </p>
-          <div class="button-container">
-            <form action="/edit/<%=article.blog_id%>" method="get">
-              <button class="primary-button" type="submit">Edit</button>
-            </form>
-            <form class="delete-form" id="form<%=article.blog_id%>" data-id="<%=article.blog_id%>">
-              <button class="primary-button" type="submit">Delete</button>
-            </form>
-          </div>
-        </div>
-        <% })%>
       </div>
-    </section>
+      <%articles.forEach((article)=> { %>
+      <div class="article">
+        <h5>
+          <%= article.title %>
+        </h5>
+        <p class="blog-text">
+          <%= article.summary ? article.summary.substring(0, 100) + "... " : "No summary available" %>
+        </p>
+        <a class="primary-button read-more-button" href="/readMore/<%=article.blog_id%>">Read more</a>
+        <p class="blog-text more-info">
+          <%= article.main_content ? article.main_content.substring(0,100) + "... " : "No content available" %>
+        </p>
+        <div class="button-container">
+          <form action="/edit/<%=article.blog_id%>" method="get">
+            <button class="primary-button" type="submit">Edit</button>
+          </form>
+          <form class="delete-form" id="form<%=article.blog_id%>" data-id="<%=article.blog_id%>">
+            <button class="primary-button" type="submit">Delete</button>
+          </form>
+        </div>
+      </div>
+      <% })%>
+    </div>
+  </section>
 
-    <%- include("partials/footer.ejs") %>
+  <%- include("partials/footer.ejs") %>
+<script>
+  document.querySelectorAll(".delete-form").forEach((form) => {
+    const id = form.dataset.id
 
-    <script>
-      document.querySelectorAll(".delete-form").forEach((form) => {
-        const id = form.dataset.id
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
+      // Add confirmation
+      if (!confirm("Are you sure you want to delete this post?")) {
+        return; // exit the method, if user clicks "Cancel"
+      }
 
-          // Add confirmation
-          if (!confirm("Are you sure you want to delete this post?")) {
-            return; // exit the method, if user clicks "Cancel"
-          }
-
-          try {
-            const JsonResult = await fetch(`/delete/${id}`, {
-              method: "DELETE",
-              headers: {
-                "Content-Type": "application/json"
-              },
-            })
-
-            const result = await JsonResult.json();
-
-            if (JsonResult.ok) {
-              alert(result.message);
-              window.location.reload();
-            } else {
-              throw new Error(result.message);
-            }
-          } catch (error) {
-            console.error(error);
-            alert(error);
-          }
+      try {
+        const JsonResult = await fetch(`/delete/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json"
+          },
         })
 
-      })
-    </script>
-  </body>
+        const result = await JsonResult.json();
 
-  </html>
+        if (JsonResult.ok) {
+          alert(result.message);
+          window.location.reload();
+        } else {
+          throw new Error(result.message);
+        }
+      } catch (error) {
+        console.error(error);
+        alert(error);
+      }
+    })
+
+  })
+</script>
+</body>
+
+</html>

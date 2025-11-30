@@ -6,9 +6,10 @@ body{
     margin: 0;
 }
 header{
-    background-color: #001F54;
+    background: linear-gradient(to right, rgba(0,0,0,1), rgba(0, 31, 84, 1));
     padding-bottom: 0.5rem;
     padding-top: 0.5rem;
+    width: 100%;
 }
 header ul{
     display: flex;
@@ -98,7 +99,7 @@ h5{
 }
 
 footer{
-    background-color: #001F54;
+    background: linear-gradient(to right, rgba(0,0,0,1), rgba(0, 31, 84, 1));
     margin-top: 3rem;
     padding: 3rem;
     text-align: center;
