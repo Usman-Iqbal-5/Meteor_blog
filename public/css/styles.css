@@ -6,16 +6,10 @@ body{
     margin: 0;
 }
 header{
-<<<<<<< HEAD
     background: linear-gradient(to right, rgba(0,0,0,1), rgba(0, 31, 84, 1));
     padding-bottom: 0.5rem;
     padding-top: 0.5rem;
     width: 100%;
-=======
-    background-color: #001F54;
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
->>>>>>> f134f0ef2620f9dab3324b2171b1fec296aa71b7
 }
 header ul{
     display: flex;
@@ -105,11 +99,7 @@ h5{
 }
 
 footer{
-<<<<<<< HEAD
     background: linear-gradient(to right, rgba(0,0,0,1), rgba(0, 31, 84, 1));
-=======
-    background-color: #001F54;
->>>>>>> f134f0ef2620f9dab3324b2171b1fec296aa71b7
     margin-top: 3rem;
     padding: 3rem;
     text-align: center;
