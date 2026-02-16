@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/post-form.css">
+  <title>Edit post</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="\images\meteor-solid-full.svg">
+</head>
+
+<body>
+  <%- include("partials/header.ejs") %>
+
+  <main>
+    <form class="container" id="updateBlogPostForm" data-id="<%= article.blog_id %>">
+      <h3>Edit Post</h3>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" value="<%= article.title %>" required />
+      <label for="summary">Summary:</label>
+      <textarea name="summary" id="summary" required>
+<%= article.summary %></textarea>
+      <label for="content">Content:</label>
+      <textarea name="content" id="content" required>
+ <%= article.main_content %> </textarea>
+      <input type="submit" class="primary-button" value="Save" />
+    </form>
+  </main>
+
+  <%- include("partials/footer.ejs") %>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector("#updateBlogPostForm");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const title = document.querySelector("#title").value;
+        const summary = document.querySelector("#summary").value;
+        const content = document.querySelector("#content").value;
+        const id = form.dataset.id;
+
+        try {
+          const JsonResult = await fetch("/updateBlogPost", {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              title: title,
+              summary: summary,
+              content: content,
+              id: id,
+            }),
+          });
+
+          const result = await JsonResult.json();
+
+          if (!JsonResult.ok) {
+            throw new Error(result.message);
+          } else {
+            alert(result.message);
+            window.location.replace("/");
+          }
+        } catch (error) {
+          console.error(error);
+          alert(error);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

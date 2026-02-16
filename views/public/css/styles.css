@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    font-family: inter;
+}
+body{
+    margin: 0;
+}
+header{
+    background: linear-gradient(to right, rgba(0,0,0,1), rgba(0, 31, 84, 1));
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    width: 100%;
+}
+header ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+header li{
+    list-style-type: none;
+    width: 100%;
+    color: #fff;
+    padding:0px;
+}
+header li a{
+    width: 4rem !important;
+    text-align: center;
+    margin:0px;
+}
+#header-logo{
+    color:#C6B38E;
+    display: flex;
+    align-items: center;
+}
+#meteor-icon{
+    fill: #C6B38E;
+    width: 1.5em;
+}
+.cta-container{
+    display: flex;
+    justify-content: flex-end;
+}
+.cta-button{
+    margin:0px !important;
+    width: 5rem !important;
+    display: block !important;
+    height: 1.8rem !important;
+    text-align: center !important;
+}
+h1{
+    margin-top:0px;
+    margin-bottom: 1rem;
+    display: inline-block;
+    font-size: 3.2rem;
+    font-weight: 600;
+    width:50%;
+}
+h3{
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+h4{
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+h5{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.blog-text{
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+.primary-button{
+    background-color: #C6B38E;
+    text-decoration: none;
+    font-size: 1rem;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    height: 1.6rem;
+    cursor: pointer;
+    transition: all ease 0.3;
+}
+.primary-button:hover{
+    filter: brightness(0.85);
+}
+
+footer{
+    background: linear-gradient(to right, rgba(0,0,0,1), rgba(0, 31, 84, 1));
+    margin-top: 3rem;
+    padding: 3rem;
+    text-align: center;
+}
+#footer-logo{
+    color:#C6B38E;
+    display:inline-flex;
+    align-items: center;
+}
+.footer-text{
+    font-size: 1rem;
+    font-weight: 300;
+    color: #fff;
+}
