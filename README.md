@@ -18,10 +18,18 @@ Built with **Express** for the backend, **EJS** for rendering views, and **Postg
 
 ## Technologies Used ⚙️
 
-- **Express.js**: Web framework for Node.js 🌐
-- **EJS (Embedded JavaScript)**: Templating engine for dynamic content 🖥️
-- **PostgreSQL**: Database for storing blog data 🗄️
-- **Node.js**: JavaScript runtime for server-side functionality 🚀
+**Frontend**  
+- HTML5  
+- CSS3  
+- JavaScript  
+
+**Backend**  
+- Node.js  
+- Express.js – handles RESTful routing and server logic 
+- EJS (Embedded JavaScript Templates) – server-side rendering of dynamic pages  
+
+**Database**  
+- PostgreSQL – relational data storage for students, projects, experiences, media, and tags 
 
 ---
 
