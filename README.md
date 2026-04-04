@@ -29,7 +29,7 @@ Built with **Express** for the backend, **EJS** for rendering views, and **Postg
 - EJS (Embedded JavaScript Templates) – server-side rendering of dynamic pages  
 
 **Database**  
-- PostgreSQL – stores data for blog titles, summary and main content.
+- PostgreSQL — stores blog titles, summaries, and main content.
 
 ---
 
