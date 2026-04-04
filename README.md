@@ -29,7 +29,7 @@ Built with **Express** for the backend, **EJS** for rendering views, and **Postg
 - EJS (Embedded JavaScript Templates) – server-side rendering of dynamic pages  
 
 **Database**  
-- PostgreSQL – relational data storage for students, projects, experiences, media, and tags 
+- PostgreSQL – stores data for meteor titles, summary and main content.
 
 ---
 
