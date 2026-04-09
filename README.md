@@ -107,8 +107,6 @@ Here are some screenshots of the application:
 ![Full blog Blog artilce page](screenshots/blog_article.jpeg)
 *Full blog Blog article page.*
 
-You can replace `path/to/homepage-screenshot.png` and the other paths with the actual file paths for your images, and add as many images as you like.
-
 ---
 
 
