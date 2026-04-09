@@ -7,6 +7,9 @@
     padding: 2rem;
     box-shadow: 0px 4px 8px hsl(0, 0%, 0%, 20%);
 }
+h3{
+    margin-top: 1.5rem !important;
+}
 label{
     display: block; /*Need to apply block or inline-block to give it a margin */
     margin-bottom: 1rem;
