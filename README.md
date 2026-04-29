@@ -10,7 +10,7 @@ Built with **Express** for the backend, **EJS** for rendering views, and **Postg
 
 - **View All Blogs**: Display a list of all astronomy-related blog posts 🌠
 - **View Full Blog**: Read the full content of individual posts 🪐
-- **Add Blog**: Add new posts with exciting astronomical content 📝
+- **Add Blog**: Add new posts with astronomy-related content 📝
 - **Edit Blog**: Update existing posts as new discoveries are made 🔄
 - **Delete Blog**: Remove blog posts you no longer need 🗑️
 
