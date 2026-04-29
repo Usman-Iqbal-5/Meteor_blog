@@ -2,9 +2,9 @@
 
 ## Overview 🌌
 
-**Meteor** is a blog application where users can **create, read, update, and delete (CRUD)** posts about **astronomy**. Whether you're sharing the latest discoveries like **TON 618** or exploring celestial phenomena, Meteor allows users to engage with the universe in a whole new way.
+**Meteor** is a blog application where users can **create, read, update, and delete (CRUD)** posts about **astronomy**. Whether you're sharing the latest discoveries like **TON 618** or exploring celestial phenomena, Meteor allows users to engage in space-realted topics, learn about astronomy and upload their own blogs about the universe.
 
-Built with **Express** for the backend, **EJS** for rendering views, and **PostgreSQL** for storing posts, this app allows users to dive into the wonders of space through easy-to-manage blog functionality.
+Built with **Express** for the backend, **EJS** for rendering views, and **PostgreSQL** for storing posts, this app allows users to dive into the wonders of space using easy-to-manage blog functionality.
 
 ### Key Features ✨
 
