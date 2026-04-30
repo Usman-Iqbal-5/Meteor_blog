@@ -24,18 +24,18 @@
     <div class="container">
       <div class="article first-article">
         <div>
-      <% if (articles.length> 0){ %>
+          <% if (articles.length> 0){ %>
           <a href="/new"><svg class="add-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
               <path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z" />
             </svg></a>
           <h5 class="add-post-title">New Post</h5>
           <% }else {%>
-            <a href="/new"><svg class="add-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+          <a href="/new"><svg class="add-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
               <path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM296 408L296 344L232 344C218.7 344 208 333.3 208 320C208 306.7 218.7 296 232 296L296 296L296 232C296 218.7 306.7 208 320 208C333.3 208 344 218.7 344 232L344 296L408 296C421.3 296 432 306.7 432 320C432 333.3 421.3 344 408 344L344 344L344 408C344 421.3 333.3 432 320 432C306.7 432 296 421.3 296 408z" />
             </svg></a>
-            <h5 class="add-post-title">Add First Post</h5>
+          <h5 class="add-post-title">Add First Post</h5>
           <% } %>
         </div>
       </div>
@@ -45,11 +45,11 @@
           <%= article.title %>
         </h5>
         <p class="blog-text">
-          <%= article.summary ? article.summary.substring(0, 100) + "... " : "No summary available" %>
+          <%= article.summary ? (article.summary.split(' ').length > 20 ? article.summary.split(' ').slice(0, 20).join(' ') + "...": article.summary): "No summary available" %>
         </p>
         <a class="primary-button read-more-button" href="/readMore/<%=article.blog_id%>">Read more</a>
         <p class="blog-text more-info">
-          <%= article.main_content ? article.main_content.substring(0,100) + "... " : "No content available" %>
+          <%= article.main_content ? (article.main_content.split(' ').length > 20 ? article.main_content.split(' ').slice(0, 20).join(' ') + "..." : article.main_content): "No content available" %>
         </p>
         <div class="button-container">
           <form action="/edit/<%=article.blog_id%>" method="get">
@@ -65,42 +65,42 @@
   </section>
 
   <%- include("partials/footer.ejs") %>
-<script>
-  document.querySelectorAll(".delete-form").forEach((form) => {
-    const id = form.dataset.id
+  <script>
+    document.querySelectorAll(".delete-form").forEach((form) => {
+      const id = form.dataset.id
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-      // Add confirmation
-      if (!confirm("Are you sure you want to delete this post?")) {
-        return; // exit the method, if user clicks "Cancel"
-      }
-
-      try {
-        const JsonResult = await fetch(`/delete/${id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json"
-          },
-        })
-
-        const result = await JsonResult.json();
-
-        if (JsonResult.ok) {
-          alert(result.message);
-          window.location.reload();
-        } else {
-          throw new Error(result.message);
+        // Add confirmation
+        if (!confirm("Are you sure you want to delete this post?")) {
+          return; // exit the method, if user clicks "Cancel"
         }
-      } catch (error) {
-        console.error(error);
-        alert(error);
-      }
-    })
 
-  })
-</script>
+        try {
+          const JsonResult = await fetch(`/delete/${id}`, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json"
+            },
+          })
+
+          const result = await JsonResult.json();
+
+          if (JsonResult.ok) {
+            alert(result.message);
+            window.location.reload();
+          } else {
+            throw new Error(result.message);
+          }
+        } catch (error) {
+          console.error(error);
+          alert(error);
+        }
+      })
+
+    })
+  </script>
 </body>
 
 </html>

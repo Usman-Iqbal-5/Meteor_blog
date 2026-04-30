@@ -1,3 +1,6 @@
+:root{
+    --golden: #C6B38E;
+}
 * {
     box-sizing: border-box;
     font-family: inter;
@@ -31,12 +34,12 @@ header li a{
     margin:0px;
 }
 #header-logo{
-    color:#C6B38E;
+    color:var(--golden);
     display: flex;
     align-items: center;
 }
 #meteor-icon{
-    fill: #C6B38E;
+    fill: var(--golden);
     width: 1.5em;
 }
 .cta-container{
@@ -57,6 +60,10 @@ h1{
     font-size: 3.2rem;
     font-weight: 600;
     width:50%;
+}
+h2{
+    font-size: 2rem;
+    font-weight: 500;
 }
 h3{
     font-size: 1.5rem;
@@ -81,7 +88,7 @@ h5{
     font-weight: 300;
 }
 .primary-button{
-    background-color: #C6B38E;
+    background-color: var(--golden);
     text-decoration: none;
     font-size: 1rem;
     color: #fff;
@@ -105,7 +112,7 @@ footer{
     text-align: center;
 }
 #footer-logo{
-    color:#C6B38E;
+    color:var(--golden);
     display:inline-flex;
     align-items: center;
 }
