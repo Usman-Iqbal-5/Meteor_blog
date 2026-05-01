@@ -15,21 +15,18 @@
 
 <body>
   <%- include("partials/header.ejs") %>
-
+  <main>
+  <h2 class="heading">Upload a blog</h2>
   <form class="container" action="/newPost" method="post">
-    <h2>Upload a blog</h2>
     <label for="title">Title:</label>
     <input type="text" id="title" name="title" placeholder="Enter blog title..." required>
-
     <label for="summary">Summary:</label>
     <textarea name="summary" id="summary" placeholder="Enter blog summary..." required></textarea>
-
     <label for="content">Content:</label>
     <textarea name="content" id="content" placeholder="Enter blog content..." required></textarea>
-
     <input class="primary-button" type="submit" value="Post">
-
   </form>
+  </main>
 
   <%- include("partials/footer.ejs") %>
 

@@ -17,16 +17,14 @@
   <%- include("partials/header.ejs") %>
 
   <main>
+    <h2 class="heading">Edit blog</h2>
     <form class="container" id="updateBlogPostForm" data-id="<%= article.blog_id %>">
-      <h3>Edit Post</h3>
       <label for="title">Title:</label>
       <input type="text" id="title" name="title" value="<%= article.title %>" required />
       <label for="summary">Summary:</label>
-      <textarea name="summary" id="summary" required>
-<%= article.summary %></textarea>
+      <textarea name="summary" id="summary" required><%= article.summary %></textarea>
       <label for="content">Content:</label>
-      <textarea name="content" id="content" required>
- <%= article.main_content %> </textarea>
+      <textarea name="content" id="content" required><%= article.main_content %></textarea>
       <input type="submit" class="primary-button" value="Save" />
     </form>
   </main>
